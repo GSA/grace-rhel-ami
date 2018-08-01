@@ -1,0 +1,11 @@
+*.csv
+!test.csv
+__pycache__
+
+# Packer
+*.pem
+
+# Ansible
+ansible/roles/
+*.retry
+secrets.yml
