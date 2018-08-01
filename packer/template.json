@@ -4,7 +4,8 @@
     "source_ami_owner": null,
     "ssh_username": null,
     "os": null,
-    "region": "{{env `AWS_DEFAULT_REGION`}}"
+    "region": "{{env `AWS_DEFAULT_REGION`}}",
+    "tenants": "{{env `TENANT_ACCOUNTS`}}"
   },
   "provisioners": [
     {
@@ -27,6 +28,11 @@
     },
     "instance_type": "t2.micro",
     "ssh_username": "{{user `ssh_username`}}",
-    "ami_name": "{{user `os`}}-base-{{timestamp}}"
+    "ami_name": "{{user `os`}}-base-{{timestamp}}",
+    "ami_users": "{{user `tenants`}}",
+    "ami_regions": [
+      "us-east-1",
+      "us-west-2"
+    ]
   }]
 }
