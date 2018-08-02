@@ -9,14 +9,14 @@ jobs:
 
       - run:
           name: Validate Packer templates
-          command: make validate_packer
+          command: /usr/bin/make validate_packer
 
       - run:
           name: Download Ansible dependencies
-          command: make roles
+          command: /usr/bin/make roles
       - run:
           name: Validate Ansible playbooks
-          command: make validate_ansible
+          command: /usr/bin/make validate_ansible
       - persist_to_workspace:
           root: .
           paths:
