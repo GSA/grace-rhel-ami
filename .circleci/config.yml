@@ -46,7 +46,6 @@ workflows:
   validate_and_deploy:
     jobs:
       - install_and_validate
-      - scp
       - deploy_rhel7: &deploy
           filters:
             branches:
