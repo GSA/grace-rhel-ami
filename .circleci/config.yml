@@ -46,7 +46,7 @@ workflows:
   validate_and_deploy:
     jobs:
       - install_and_validate
-      - deploy_rhel7: &deploy
+      - deploy_rhel7:
           filters:
             branches:
               only:
