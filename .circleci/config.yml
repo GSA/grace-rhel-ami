@@ -43,6 +43,14 @@ jobs:
 workflows:
   version: 2
 
+  weekly:
+    triggers:
+      - schedule:
+          cron: "0 3 * * 6"
+          filters:
+            branches:
+              only:
+                - master
   validate_and_deploy:
     jobs:
       - install_and_validate
