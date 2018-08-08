@@ -71,3 +71,4 @@ workflows:
                 - master
           requires:
             - install_and_validate
+          no_output_timeout: 1h
