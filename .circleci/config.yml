@@ -51,6 +51,15 @@ workflows:
             branches:
               only:
                 - master
+    jobs:
+      - install_and_validate
+      - deploy_rhel7:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - install_and_validate
   validate_and_deploy:
     jobs:
       - install_and_validate
