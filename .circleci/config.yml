@@ -39,6 +39,7 @@ jobs:
           command: |
             export USER=$(whoami)
             make rhel7
+          no_output_timeout: 1h
 
 workflows:
   version: 2
@@ -60,6 +61,7 @@ workflows:
                 - master
           requires:
             - install_and_validate
+
   validate_and_deploy:
     jobs:
       - install_and_validate
