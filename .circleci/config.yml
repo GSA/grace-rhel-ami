@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Get Tenants Info, store in environment variable
           command: |
-            echo 'export TENANT_ACCOUNTS=$(aws s3 cp --quiet s3://grace-tenant-info/tenant-info/tenants.txt /dev/stdout)' >> $BASH_ENV
+            echo "export TENANT_ACCOUNTS=$(aws s3 cp --quiet s3://grace-tenant-info/tenant-info/tenants.txt /dev/stdout)" >> $BASH_ENV
             source $BASH_ENV
 
       - run:
@@ -76,5 +76,6 @@ workflows:
             branches:
               only:
                 - master
+                - tenant-accounts-testing
           requires:
             - install_and_validate
