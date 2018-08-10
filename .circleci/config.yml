@@ -34,15 +34,17 @@ jobs:
           name: Disable host key checking
           command: printf "\nHost *\n\tStrictHostKeyChecking no" >> ~/.ssh/config
 
-      - run:
-          name: Get Tenants Info, store in environment variable
-          command: |
-            echo 'export TENANT_ACCOUNTS=$(aws s3 cp --quiet s3://grace-tenant-info/tenant-info/tenants.txt /dev/stdout)' >> $BASH_ENV
-            source $BASH_ENV
+      # - run:
+      #     name: Get Tenants Info, store in environment variable
+      #     command: |
+      #       echo "export TENANT_ACCOUNTS=$(aws s3 cp --quiet s3://grace-tenant-info/tenant-info/tenants.txt /dev/stdout)" >> $BASH_ENV
+      #       source $BASH_ENV
 
       - run:
           name: Build rhel7 AMI
           command: |
+            export TENANT_ACCOUNTS=$(aws s3 cp --quiet s3://grace-tenant-info/tenant-info/tenants.txt /dev/stdout)
+            echo $TENANT_ACCOUNTS
             export USER=$(whoami)
             make rhel7
           no_output_timeout: 1h
@@ -76,5 +78,6 @@ workflows:
             branches:
               only:
                 - master
+                - tenant-accounts-testing
           requires:
             - install_and_validate
