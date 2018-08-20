@@ -1,6 +1,0 @@
-{
-  "source_ami_name": "RHEL-6.7_HVM_*",
-  "source_ami_owner": "309956199498",
-  "ssh_username": "ec2-user",
-  "os": "rhel6"
-}
