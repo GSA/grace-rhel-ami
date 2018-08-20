@@ -1,4 +1,4 @@
-default: rhel7
+default: rhel7 rhel6
 
 roles:
 	ansible-galaxy install -p ansible/roles -r ansible/requirements.yml --force
@@ -12,3 +12,6 @@ validate_packer:
 
 rhel7: roles
 	packer build -var-file=packer/rhel7.json packer/template.json
+
+rhel6: roles
+	packer build -var-file=packer/rhel6.json packer/template.json
