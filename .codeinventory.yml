@@ -1,0 +1,12 @@
+name: 'GSA/grace-rhel-ami'
+description: 'Pipeline to produce standard GSA RHEL AMIs for the GRACE platform'
+license: null
+openSourceProject: 1
+governmentWideReuseProject: 1
+tags:
+    - open-source
+    - opensource
+    - grace
+    - devsecops
+contact:
+    email: devsecops-core@gsa.gov
